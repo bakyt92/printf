@@ -4,5 +4,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
+va_list ap;
 
 #endif

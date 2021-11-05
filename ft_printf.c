@@ -1,5 +1,16 @@
 #include "libftprintf.h"
 
+static char *ft_process(char *f)
+{
+	char c;
+	c = *f;
+
+	if(c == 'c')
+		write(1, &c, 1);
+	if
+}
+
+
 int ft_printf(const char *s, ...)
 {
 	char *f;
@@ -12,7 +23,8 @@ int ft_printf(const char *s, ...)
 			f++;
 			ft_process(f);
 		}
-		f++;
+		else
+			ft_putchar(*(f++));
 	}
 	return (int);
 }
