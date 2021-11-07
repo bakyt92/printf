@@ -15,6 +15,7 @@ void ft_process(char *f, tData p);
 void ft_char(char *f, tData p);
 void ft_str(char *f, tData p);
 void ft_pointer(char *f, tData p);
+void ft_putstr(char *str);
 
 
 #endif

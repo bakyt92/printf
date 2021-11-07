@@ -46,7 +46,7 @@ char *ft_convert_hex(unsigned long long int pointer, tData p)
 	*ptr = '\0';
 	while (pointer != 0)
 	{
-		*(ptr--) = alphabet_hex[pointer % 16];
+		*ptr-- = alphabet_hex[pointer % 16];
 		pointer /= 16;
 	}
 	return (ptr);

@@ -1,5 +1,17 @@
 #include "libftprintf.h"
 
+void ft_putstr(char *str)
+{
+	if(!str)
+		return;
+	while (str)
+	{
+		write(1, &str, 1);
+		str++;
+	}
+	return;
+}
+
 void ft_process(char *f, tData p)
 {
 	if(*f == 'c')
@@ -18,7 +30,11 @@ void ft_process(char *f, tData p)
 		ft_hecadecimal_upper(f, p);
 	if(*f == '%')
 		ft_char(f, p);
-	f++;
+	else
+	{
+		ft_putstr(f);
+		f++;
+	}
 }
 
 
@@ -48,4 +64,3 @@ int ft_printf(const char *s, ...)
 	va_end(p.ap);
 	return (p.s_printed);
 }
-
