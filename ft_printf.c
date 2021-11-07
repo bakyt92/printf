@@ -25,9 +25,9 @@ void ft_process(char *f, tData p)
 	if(*f == 'u')
 		ft_unsigned_int(f, p);
 	if(*f == 'x')
-		ft_hecadecimal_lower(f, p);
+		ft_hexadecimal_lower(f, p);
 	if(*f == 'X')
-		ft_hecadecimal_upper(f, p);
+		ft_hexadecimal_upper(f, p);
 	if(*f == '%')
 		ft_char(f, p);
 	else

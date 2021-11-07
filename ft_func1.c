@@ -32,16 +32,16 @@ void ft_pointer(char *f, tData p)
 	write(1, 'x', 1);
 	p.s_printed += 2;
 	s1 = ft_convert_hex(pointer, p);
-	ft_str(s1);
+	ft_str(s1, p);
 }
 
 char *ft_convert_hex(unsigned long long int pointer, tData p)
 {
-	static char alphabet_hex;
-	static char buffer[50];
-	char *ptr;
+	static char	*alphabet_hex;
+	static char	buffer[50];
+	char 		*ptr;
 
-	alphabet_hex[] = "0123456789abcdef";
+	alphabet_hex[16] = "0123456789abcdef";
 	ptr = &buffer[49];
 	*ptr = '\0';
 	while (pointer != 0)

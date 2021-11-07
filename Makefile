@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_func1.c ft_func2.c
 
 HEADER = libftprintf.h
 
