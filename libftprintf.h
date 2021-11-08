@@ -11,16 +11,16 @@ typedef struct tData {
 
 int		ft_printf(const char *s, ...);
 void	ft_process(char *f, tData p);
-void	ft_char(char *f, tData p);
-void	ft_str(char *f, tData p);
-void	ft_pointer(char *f, tData p);
-void	ft_putstr(char *str);
-void	ft_digit(char *f, tData p);
+void	ft_char(tData p);
+void	ft_str(tData p);
+void	ft_pointer(tData p);
+void	ft_putstr(char *str, tData p);
+void	ft_digit(tData p);
 int		ft_putnbr(int n);
 int		ft_putnbr_unsigned(unsigned int n);
-void 	ft_unsigned_int(char *f, tData p);
-void 	ft_hexadecimal_lower(char *f, tData p);
-char 	*ft_convert_hex(unsigned long long int pointer, tData p);
-
+void 	ft_unsigned_int(tData p);
+void 	ft_hexadecimal_lower(tData p);
+char 	*ft_convert_hex(unsigned long long int pointer);
+void 	ft_hexadecimal_upper(tData p);
 
 #endif

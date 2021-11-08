@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-void ft_putstr(char *str)
+void ft_putstr(char *str, tData p)
 {
 	if(!str)
 		return;
@@ -8,6 +8,7 @@ void ft_putstr(char *str)
 	{
 		write(1, &str, 1);
 		str++;
+		p.s_printed++;
 	}
 	return;
 }
@@ -15,26 +16,23 @@ void ft_putstr(char *str)
 void ft_process(char *f, tData p)
 {
 	if(*f == 'c')
-		ft_char(f, p);
+		ft_char(p);
 	if(*f == 's')
-		ft_str(f, p);
+		ft_str(p);
 	if(*f == 'p')
-		ft_pointer(f, p);
+		ft_pointer(p);
 	if(*f == 'd' || *f == 'i')
-		ft_digit(f, p);
+		ft_digit(p);
 	if(*f == 'u')
-		ft_unsigned_int(f, p);
+		ft_unsigned_int(p);
 	if(*f == 'x')
-		ft_hexadecimal_lower(f, p);
+		ft_hexadecimal_lower(p);
 	if(*f == 'X')
-		ft_hexadecimal_upper(f, p);
+		ft_hexadecimal_upper(p);
 	if(*f == '%')
-		ft_char(f, p);
+		ft_char(p);
 	else
-	{
-		ft_putstr(f);
-		f++;
-	}
+		ft_putstr(f, p);
 }
 
 
@@ -56,11 +54,19 @@ int ft_printf(const char *s, ...)
 		}
 		else
 		{
-			ft_char(*(f++));
-			p.s_printed++;
+			ft_putstr(f, p);
 		}
 
 	}
 	va_end(p.ap);
 	return (p.s_printed);
+}
+
+int main (void)
+{
+	char a;
+
+	a = 'x';
+	ft_printf("Result of print is: %c", a);
+	return (0);
 }

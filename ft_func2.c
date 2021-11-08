@@ -25,7 +25,7 @@ int	ft_putnbr(int n)
 	return (counter);
 }
 
-void ft_digit(char *f, tData p)
+void ft_digit(tData p)
 {
 	int digit;
 

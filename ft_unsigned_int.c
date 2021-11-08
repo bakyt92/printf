@@ -14,7 +14,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 	return (counter);
 }
 
-void ft_unsigned_int(char *f, tData p)
+void ft_unsigned_int(tData p)
 {
 	unsigned int digit;
 
