@@ -6,7 +6,7 @@ HEADER = libftprintf.h
 
 OBJ = $(SRC:%.c=%.o)
 
-CFLAGS = -Wall -Wextra -Werror $(HEADER)
+CFLAGS = -Wall -Wextra -Werror
 
 .PHONY : all clean fclean re 
 
@@ -16,7 +16,7 @@ $(NAME) : $(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
 
 %.o : %.c $(HEADER)
-	gcc $(CFLAGS) -c $<
+	gcc $(CFLAGS) -c $< -o $@
 	@echo "DONE CORRECTLY"
 
 clean : 
