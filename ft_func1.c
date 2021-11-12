@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void ft_char(tData *p)
 {
@@ -32,7 +32,7 @@ void ft_pointer(tData *p)
 	write(1, "x", 1);
 	p->s_printed += 2;
 	s1 = ft_convert_hex(pointer);
-	ft_putstr(s1, p);
+	ft_putchar(*s1, p);
 }
 
 char *ft_convert_hex(unsigned long long int pointer)

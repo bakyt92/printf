@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 SRC = ft_printf.c ft_func1.c ft_func2.c ft_hexadecimal.c ft_unsigned_int.c
 
-HEADER = libftprintf.h
+HEADER = ft_printf.h
 
 OBJ = $(SRC:%.c=%.o)
 

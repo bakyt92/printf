@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void ft_hexadecimal_lower(tData *p)
 {
@@ -7,7 +7,7 @@ void ft_hexadecimal_lower(tData *p)
 
 	hex_low = va_arg(p->ap, unsigned int);
 	s1 = ft_convert_hex(hex_low);
-	ft_putstr(s1, p);
+	ft_putchar(*s1, p);
 }
 
 void ft_hexadecimal_upper(tData *p)
@@ -29,5 +29,5 @@ void ft_hexadecimal_upper(tData *p)
 		else
 			*(print_hex++) = *(s1++);
 	}
-	ft_putstr(print_hex, p);
+	ft_putchar(*print_hex, p);
 }

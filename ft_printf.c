@@ -1,16 +1,9 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void ft_putstr(char *str, tData *p)
+void ft_putchar(char str, tData *p)
 {
-	if(!str)
-		return;
-	while (str)
-	{
 		write(1, &str, 1);
-		str++;
 		p->s_printed++;
-	}
-	return;
 }
 
 void ft_process(char *f, tData *p)
@@ -32,31 +25,31 @@ void ft_process(char *f, tData *p)
 	if(*f == '%')
 		ft_char(p);
 	else
-		ft_putstr(f, p);
+	{
+		ft_putchar(*f, p);
+	}
 }
 
 
 int ft_printf(const char *s, ...)
 {
-	char *f;
 	tData p;
 
 	p.s_printed = 0;
-	f = (char *)s;
 	va_start(p.ap, s);
-	while (f)
+	while (s)
 	{
-		if(*f == '%' && *(f+1) != '\0')
+		if(*s == '%')
 		{
-			f++;
-			p.s_printed++;
-			ft_process(f, &p);
+			s++;
+			ft_process((char *)s, &p);
+			s++;
 		}
 		else
 		{
-			ft_putstr(f, &p);
+			ft_putchar(*(char *)s, &p);
+			s++;
 		}
-
 	}
 	va_end(p.ap);
 	return (p.s_printed);

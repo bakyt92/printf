@@ -1,5 +1,5 @@
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -14,7 +14,7 @@ void	ft_process(char *f, tData *p);
 void	ft_char(tData *p);
 void	ft_str(tData *p);
 void	ft_pointer(tData *p);
-void	ft_putstr(char *str, tData *p);
+void	ft_putchar(char str, tData *p);
 void	ft_digit(tData *p);
 int		ft_putnbr(int n);
 int		ft_putnbr_unsigned(unsigned int n);
