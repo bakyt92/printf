@@ -14,10 +14,10 @@ int	ft_putnbr_unsigned(unsigned int n)
 	return (counter);
 }
 
-void ft_unsigned_int(tData p)
+void ft_unsigned_int(tData *p)
 {
 	unsigned int digit;
 
-	digit = va_arg(p.ap, unsigned int);
-	p.s_printed += ft_putnbr_unsigned(digit);
+	digit = va_arg(p->ap, unsigned int);
+	p->s_printed += ft_putnbr_unsigned(digit);
 }

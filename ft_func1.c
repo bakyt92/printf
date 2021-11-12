@@ -1,36 +1,36 @@
 #include "libftprintf.h"
 
-void ft_char(tData p)
+void ft_char(tData *p)
 {
 	char c;
 
-	c = va_arg(p.ap, int);
+	c = va_arg(p->ap, int);
 	write(1, &c, 1);
-	p.s_printed++;
+	p->s_printed++;
 }
 
-void ft_str(tData p)
+void ft_str(tData *p)
 {
 	char *str;
 
-	str = va_arg(p.ap, char *);
+	str = va_arg(p->ap, char *);
 	while (str)
 	{
 		write(1, &str, 1);
 		str++;
-		p.s_printed++;
+		p->s_printed++;
 	}
 }
 
-void ft_pointer(tData p)
+void ft_pointer(tData *p)
 {
 	unsigned long long int pointer;
 	char *s1;
 
-	pointer = va_arg(p.ap, unsigned long long int);
+	pointer = va_arg(p->ap, unsigned long long int);
 	write(1, "0", 1);
 	write(1, "x", 1);
-	p.s_printed += 2;
+	p->s_printed += 2;
 	s1 = ft_convert_hex(pointer);
 	ft_putstr(s1, p);
 }

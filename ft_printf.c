@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-void ft_putstr(char *str, tData p)
+void ft_putstr(char *str, tData *p)
 {
 	if(!str)
 		return;
@@ -8,12 +8,12 @@ void ft_putstr(char *str, tData p)
 	{
 		write(1, &str, 1);
 		str++;
-		p.s_printed++;
+		p->s_printed++;
 	}
 	return;
 }
 
-void ft_process(char *f, tData p)
+void ft_process(char *f, tData *p)
 {
 	if(*f == 'c')
 		ft_char(p);
@@ -50,23 +50,14 @@ int ft_printf(const char *s, ...)
 		{
 			f++;
 			p.s_printed++;
-			ft_process(f, p);
+			ft_process(f, &p);
 		}
 		else
 		{
-			ft_putstr(f, p);
+			ft_putstr(f, &p);
 		}
 
 	}
 	va_end(p.ap);
 	return (p.s_printed);
-}
-
-int main (void)
-{
-	char a;
-
-	a = 'x';
-	ft_printf("Result of print is: %c", a);
-	return (0);
 }

@@ -25,10 +25,10 @@ int	ft_putnbr(int n)
 	return (counter);
 }
 
-void ft_digit(tData p)
+void ft_digit(tData *p)
 {
 	int digit;
 
-	digit = va_arg(p.ap, int);
-	p.s_printed += ft_putnbr(digit);
+	digit = va_arg(p->ap, int);
+	p->s_printed += ft_putnbr(digit);
 }
