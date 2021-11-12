@@ -1,28 +1,31 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 void ft_putchar(char str, tData *p)
 {
-		write(1, &str, 1);
-		p->s_printed++;
+//	printf("putchar:\n");
+	write(1, &str, 1);
+	p->s_printed++;
 }
 
 void ft_process(char *f, tData *p)
 {
+//	char c = va_arg(p->ap, int);
 	if(*f == 'c')
 		ft_char(p);
-	if(*f == 's')
+	else if(*f == 's')
 		ft_str(p);
-	if(*f == 'p')
+	else if(*f == 'p')
 		ft_pointer(p);
-	if(*f == 'd' || *f == 'i')
+	else if(*f == 'd' || *f == 'i')
 		ft_digit(p);
-	if(*f == 'u')
+	else if(*f == 'u')
 		ft_unsigned_int(p);
-	if(*f == 'x')
+	else if(*f == 'x')
 		ft_hexadecimal_lower(p);
-	if(*f == 'X')
+	else if(*f == 'X')
 		ft_hexadecimal_upper (p);
-	if(*f == '%')
+	else if(*f == '%')
 		ft_char(p);
 	else
 	{
@@ -37,20 +40,28 @@ int ft_printf(const char *s, ...)
 
 	p.s_printed = 0;
 	va_start(p.ap, s);
-	while (s)
+	while (*s)
 	{
 		if(*s == '%')
 		{
 			s++;
 			ft_process((char *)s, &p);
 			s++;
+//			printf("s = %s", s);
 		}
 		else
 		{
 			ft_putchar(*(char *)s, &p);
+//			write(1, s, 1);
 			s++;
 		}
 	}
 	va_end(p.ap);
 	return (p.s_printed);
 }
+
+//int main(void)
+//{
+//	char *str = "%c";
+//	ft_printf(str, 'V');
+//}

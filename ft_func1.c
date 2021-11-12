@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 void ft_char(tData *p)
 {
@@ -7,6 +8,7 @@ void ft_char(tData *p)
 	c = va_arg(p->ap, int);
 	write(1, &c, 1);
 	p->s_printed++;
+//	printf("ft_char\n");
 }
 
 void ft_str(tData *p)
@@ -14,12 +16,10 @@ void ft_str(tData *p)
 	char *str;
 
 	str = va_arg(p->ap, char *);
-	while (str)
-	{
-		write(1, &str, 1);
-		str++;
-		p->s_printed++;
-	}
+	if (*str)
+		return ;
+	while (*str)
+		ft_putchar(*str, p);
 }
 
 void ft_pointer(tData *p)
