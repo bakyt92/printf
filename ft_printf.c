@@ -28,11 +28,8 @@ void ft_process(char *f, tData *p)
 	else if(*f == '%')
 		ft_char(p);
 	else
-	{
 		ft_putchar(*f, p);
-	}
 }
-
 
 int ft_printf(const char *s, ...)
 {
@@ -52,7 +49,6 @@ int ft_printf(const char *s, ...)
 		else
 		{
 			ft_putchar(*(char *)s, &p);
-//			write(1, s, 1);
 			s++;
 		}
 	}
@@ -62,6 +58,6 @@ int ft_printf(const char *s, ...)
 
 //int main(void)
 //{
-//	char *str = "%c";
-//	ft_printf(str, 'V');
+//	ft_printf("%x", 17);
+//	return (0);
 //}

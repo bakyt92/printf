@@ -20,7 +20,7 @@ int		ft_putnbr(int n);
 int		ft_putnbr_unsigned(unsigned int n);
 void 	ft_unsigned_int(tData *p);
 void 	ft_hexadecimal_lower(tData *p);
-char 	*ft_convert_hex(unsigned long long int pointer);
+void	ft_convert(unsigned long long int pointer, unsigned int base, tData *p);
 void 	ft_hexadecimal_upper(tData *p);
 
 #endif
