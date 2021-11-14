@@ -1,16 +1,28 @@
-#include "ft_printf.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_func1.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/14 14:46:42 by ufitzhug          #+#    #+#             */
+/*   Updated: 2021/11/14 14:46:46 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_convert(unsigned long long int pointer, unsigned int base, tData *p)
+#include "ft_printf.h"
+
+
+void ft_convert(unsigned long long int pointer, unsigned int base, tData *p,
+				char *alphabet)
 {
-	const char	alphabet_hex[] = "0123456789abcdef";
 	char c;
 
 	if (pointer >= base)
 	{
-		ft_convert(pointer / base, base, p);
+		ft_convert(pointer / base, base, p, alphabet);
 	}
-	c = alphabet_hex[pointer % base];
+	c = alphabet[pointer % base];
 	write(1, &c, 1);
 	p->s_printed++;
 }
@@ -47,6 +59,6 @@ void ft_pointer(tData *p)
 	write(1, "0", 1);
 	write(1, "x", 1);
 	p->s_printed += 2;
-	ft_convert(pointer, 16, p);
+	ft_convert(pointer, 16, p, HEX_LOWER);
 }
 

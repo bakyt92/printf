@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/14 14:47:26 by ufitzhug          #+#    #+#             */
+/*   Updated: 2021/11/14 14:55:14 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <stdio.h>
 
 void ft_putchar(char str, tData *p)
 {
@@ -8,9 +19,8 @@ void ft_putchar(char str, tData *p)
 	p->s_printed++;
 }
 
-void ft_process(char *f, tData *p)
+void ft_process(char * f, tData *p)
 {
-//	char c = va_arg(p->ap, int);
 	if(*f == 'c')
 		ft_char(p);
 	else if(*f == 's')
@@ -25,8 +35,8 @@ void ft_process(char *f, tData *p)
 		ft_hexadecimal_lower(p);
 	else if(*f == 'X')
 		ft_hexadecimal_upper (p);
-	else if(*f == '%')
-		ft_char(p);
+//	else if(*f == '%')
+//		ft_char(p);
 	else
 		ft_putchar(*f, p);
 }
