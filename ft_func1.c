@@ -6,17 +6,16 @@
 /*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:46:42 by ufitzhug          #+#    #+#             */
-/*   Updated: 2021/11/14 14:46:46 by ufitzhug         ###   ########.fr       */
+/*   Updated: 2021/11/14 16:29:05 by ufitzhug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-void ft_convert(unsigned long long int pointer, unsigned int base, tData *p,
+void	ft_convert(unsigned long long int pointer, unsigned int base, t_Data *p,
 				char *alphabet)
 {
-	char c;
+	char	c;
 
 	if (pointer >= base)
 	{
@@ -27,19 +26,18 @@ void ft_convert(unsigned long long int pointer, unsigned int base, tData *p,
 	p->s_printed++;
 }
 
-void ft_char(tData *p)
+void	ft_char(t_Data *p)
 {
-	char c;
+	char	c;
 
 	c = va_arg(p->ap, int);
 	write(1, &c, 1);
 	p->s_printed++;
-//	printf("ft_char\n");
 }
 
-void ft_str(tData *p)
+void	ft_str(t_Data *p)
 {
-	char *str;
+	char	*str;
 
 	str = va_arg(p->ap, char *);
 	if (!str)
@@ -51,9 +49,9 @@ void ft_str(tData *p)
 	}
 }
 
-void ft_pointer(tData *p)
+void	ft_pointer(t_Data *p)
 {
-	unsigned long long int pointer;
+	unsigned long long int	pointer;
 
 	pointer = va_arg(p->ap, unsigned long long int);
 	write(1, "0", 1);
@@ -61,4 +59,3 @@ void ft_pointer(tData *p)
 	p->s_printed += 2;
 	ft_convert(pointer, 16, p, HEX_LOWER);
 }
-

@@ -6,55 +6,51 @@
 /*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:47:26 by ufitzhug          #+#    #+#             */
-/*   Updated: 2021/11/14 14:55:14 by ufitzhug         ###   ########.fr       */
+/*   Updated: 2021/11/14 16:27:42 by ufitzhug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putchar(char str, tData *p)
+void	ft_putchar(char str, t_Data *p)
 {
-//	printf("putchar:\n");
 	write(1, &str, 1);
 	p->s_printed++;
 }
 
-void ft_process(char * f, tData *p)
+void	ft_process(char *f, t_Data *p)
 {
-	if(*f == 'c')
+	if (*f == 'c')
 		ft_char(p);
-	else if(*f == 's')
+	else if (*f == 's')
 		ft_str(p);
-	else if(*f == 'p')
+	else if (*f == 'p')
 		ft_pointer(p);
-	else if(*f == 'd' || *f == 'i')
+	else if (*f == 'd' || *f == 'i')
 		ft_digit(p);
-	else if(*f == 'u')
+	else if (*f == 'u')
 		ft_unsigned_int(p);
-	else if(*f == 'x')
+	else if (*f == 'x')
 		ft_hexadecimal_lower(p);
-	else if(*f == 'X')
+	else if (*f == 'X')
 		ft_hexadecimal_upper (p);
-//	else if(*f == '%')
-//		ft_char(p);
 	else
 		ft_putchar(*f, p);
 }
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	tData p;
+	t_Data	p;
 
 	p.s_printed = 0;
 	va_start(p.ap, s);
 	while (*s)
 	{
-		if(*s == '%')
+		if (*s == '%')
 		{
 			s++;
 			ft_process((char *)s, &p);
 			s++;
-//			printf("s = %s", s);
 		}
 		else
 		{
@@ -65,9 +61,3 @@ int ft_printf(const char *s, ...)
 	va_end(p.ap);
 	return (p.s_printed);
 }
-
-//int main(void)
-//{
-//	ft_printf("%x", 17);
-//	return (0);
-//}
