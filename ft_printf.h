@@ -33,8 +33,8 @@ void	ft_putchar(char str, t_Data *p);
 void	ft_digit(t_Data *p);
 void	ft_unsigned_int(t_Data *p);
 void	ft_hexadecimal_lower(t_Data *p);
-void	ft_convert(unsigned long long int pointer, unsigned int base, t_Data
-			*p, char *alphabet);
+void	ft_convert(unsigned long long int pointer, unsigned int base,
+			t_Data *p, char *alphabet);
 void	ft_hexadecimal_upper(t_Data *p);
 
 #endif
