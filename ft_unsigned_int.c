@@ -16,6 +16,6 @@ void	ft_unsigned_int(t_Data *p)
 {
 	unsigned int	digit;
 
-	digit = va_arg(p->ap, unsigned iant);
+	digit = va_arg(p->ap, unsigned int);
 	ft_convert(digit, 10, p, DESYATOK);
 }
